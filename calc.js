@@ -1,11 +1,11 @@
 
-const F={slab:[['len','Length (ft)',10],['wid','Width (ft)',10],['thk','Thickness (in)',4]],
+const F={tri:[['bas','Base (ft)',10],['hgt','Height (ft)',8],['thk','Thickness (in)',4]],slab:[['len','Length (ft)',10],['wid','Width (ft)',10],['thk','Thickness (in)',4]],
 footing:[['len','Length (ft)',40],['wid','Width (in)',16],['thk','Depth (in)',8]],
 column:[['dia','Diameter (in)',12],['hgt','Height (ft)',8],['qty','Number of columns',4]],
 post:[['dia','Hole diameter (in)',10],['dep','Hole depth (in)',30],['pst','Post width (in)',4],['qty','Number of posts',10]]};
-const V={slab:v=>v.len*v.wid*v.thk/12,footing:v=>v.len*v.wid*v.thk/144,column:v=>Math.PI*(v.dia/24)**2*v.hgt*v.qty,
+const V={tri:v=>v.bas*v.hgt/2*v.thk/12,slab:v=>v.len*v.wid*v.thk/12,footing:v=>v.len*v.wid*v.thk/144,column:v=>Math.PI*(v.dia/24)**2*v.hgt*v.qty,
 post:v=>Math.max(0,Math.PI*(v.dia/24)**2-(v.pst/12)**2)*v.dep/12*v.qty};
-const N={slab:'Slab, patio, driveway, floor',footing:'Footing / strip',column:'Round column / tube',post:'Fence or deck post holes'};
+const N={slab:'Slab, patio, driveway, floor',footing:'Footing / strip',column:'Round column / tube',post:'Fence or deck post holes',tri:'Triangle-shaped slab'};
 const root=document.getElementById('calc');
 if(root){let t=root.dataset.type;const all=t==='all';if(all)t='slab';
 function draw(){root.innerHTML=(all?'<label>Shape<select id="sh">'+Object.keys(N).map(k=>`<option value="${k}"${k===t?' selected':''}>${N[k]}</option>`).join('')+'</select></label><br>':'')+
