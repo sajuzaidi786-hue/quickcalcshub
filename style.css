@@ -20,3 +20,5 @@ table{border-collapse:collapse;width:100%;background:#fff}td,th{border:1px solid
 details{background:#fff;border:1px solid var(--line);padding:10px 14px;margin:8px 0}summary{cursor:pointer;font-weight:700}
 article{max-width:740px}footer{background:var(--dk);color:#bbb;margin-top:40px;padding:26px 0;font-size:14px}footer a{color:#ddd;margin-right:14px}
 @media(prefers-reduced-motion:no-preference){button{transition:background .15s}}
+
+.logo{display:flex;align-items:center;gap:10px}.logo img{height:44px;width:auto;background:#fff;border-radius:8px;padding:3px}
